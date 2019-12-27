@@ -5,4 +5,5 @@ This repo and Dockerfile contains a simple app to test the docker connectivity t
 The parameters.yml needs to be filled out and can contain multiple tables per server and database.
 
 To run the docker image, use the following example::
+
   docker run -v C:\path_to_yml\parameters.yml:/parameters.yml mullenkamp/sql-server-check /parameters.yml
