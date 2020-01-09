@@ -1,7 +1,7 @@
 FROM python:3.7-buster
 
 WORKDIR /app
-COPY ./ .
+COPY Dockerfile requirements.txt sql_check_ConsentsReporting.py ./
 
 # RUN apt-get update && apt-get install -y curl gnupg
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
