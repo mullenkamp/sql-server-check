@@ -10,7 +10,7 @@ import pyodbc
 import argparse
 import yaml
 
-pd.options.display.max_columns = 10
+# pd.options.display.max_columns = 10
 
 ##########################################
 ### Parameters
@@ -32,7 +32,12 @@ for s in param:
     for t in s['tables']:
         print('table: ' + t)
 
-        sp1 = mssql.rd_sql(s['server'], s['database'], t, username=s['username'], password=s['password'])
+        if 'col_names' in s:
+            col_names = s['col_names']
+        else:
+            col_names = None
+
+        sp1 = mssql.rd_sql(s['server'], s['database'], t, col_names, username=s['username'], password=s['password'])
 
         print(sp1.head())
     print('--Success')
