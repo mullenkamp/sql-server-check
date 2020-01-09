@@ -6,4 +6,4 @@ The parameters.yml needs to be filled out and can contain multiple tables per se
 
 To run the docker image, use the following example::
 
-  docker run -v C:\path_to_yml\parameters.yml:/parameters.yml mullenkamp/sql-server-check /parameters.yml
+  docker run -v C:\path_to_yml\parameters.yml:/parameters.yml mullenkamp/sql-server-check
