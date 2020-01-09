@@ -10,6 +10,7 @@ __pycache__/
 *.idea
 .pytest_cache/
 scripts/__pycache__/
+param.yml
 
 # due to using tox and pytest
 .tox

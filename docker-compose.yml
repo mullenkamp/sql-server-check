@@ -1,0 +1,6 @@
+version: "3.7"
+services:
+  sql-check:
+    image: mullenkamp/sql-server-check
+    volumes:
+      - C:\ecan\git\sql-server-check\parameters.yml:/parameters.yml

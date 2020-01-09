@@ -1,6 +1,5 @@
 FROM python:3.7-buster
 
-WORKDIR /app
 COPY Dockerfile requirements.txt sql_check_ConsentsReporting.py ./
 
 # RUN apt-get update && apt-get install -y curl gnupg
@@ -10,4 +9,4 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y unixodbc-dev msodbcsql17
 
 RUN python3 -m pip install -r requirements.txt
 
-ENTRYPOINT ["python", "sql_check_ConsentsReporting.py"]
+CMD ["python", "sql_check_ConsentsReporting.py", "parameters.yml"]
