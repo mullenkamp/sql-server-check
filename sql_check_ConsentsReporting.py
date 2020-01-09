@@ -4,7 +4,6 @@ Created on Tue Jan 15 15:59:37 2019
 
 @author: MichaelEK
 """
-import os
 from pdsql import mssql
 import pandas as pd
 import pyodbc
@@ -21,26 +20,19 @@ parser.add_argument('yaml_path')
 args = parser.parse_args()
 
 with open(args.yaml_path) as param:
-        param = yaml.safe_load(param)
-
-# server = 'edwdev01'
-server = param['server']
-db = param['database']
-tables = param['tables']
-username = param['username']
-password = param['password']
-
+    param = yaml.safe_load(param)
 
 ##########################################
 ### tests
 
 print(pyodbc.drivers())
 
-print('--Checking connectivity to server: ' + server + ' and database: ' + db)
-for t in tables:
-    print('table: ' + t)
+for s in param:
+    print('--Checking connectivity to server: ' + s['server'] + ' and database: ' + s['database'])
+    for t in s['tables']:
+        print('table: ' + t)
 
-    sp1 = mssql.rd_sql(server, db, t, username=username, password=password)
+        sp1 = mssql.rd_sql(s['server'], s['database'], t, username=s['username'], password=s['password'])
 
-    print(sp1.head())
-print('--Success')
+        print(sp1.head())
+    print('--Success')
