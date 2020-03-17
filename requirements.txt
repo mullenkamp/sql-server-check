@@ -1,3 +1,2 @@
 pdsql>=1.2.18
 pyyaml
-pymssql<3.0
