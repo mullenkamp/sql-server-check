@@ -1,4 +1,4 @@
-FROM python:3.7-slim
+FROM python:3.7-buster
 
 COPY Dockerfile requirements.txt sql_check.py ./
 
