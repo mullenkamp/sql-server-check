@@ -4,6 +4,7 @@ Created on Tue Jan 15 15:59:37 2019
 
 @author: MichaelEK
 """
+import os
 from pdsql import mssql
 import pandas as pd
 import pyodbc
@@ -14,6 +15,11 @@ import yaml
 
 ##########################################
 ### Parameters
+
+base_dir = os.path.realpath(os.path.dirname(__file__))
+
+with open(os.path.join(base_dir, 'param.yml')) as param:
+    param = yaml.safe_load(param)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('yaml_path')
